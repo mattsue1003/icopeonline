@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>115年度桃園市跨專業團隊交流共識營</title>
+<style>
+:root{
+  --navy:#0B3954; --teal:#028090; --sea:#00A896; --mint:#8FE3D6;
+  --cream:#F4F9F9; --grey:#5B6B73; --dark:#1B2B33; --white:#FFFFFF;
+  --gold:#F4A259; --red:#D1495B; --lightcard:#EAF4F4; --line:#06C755;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+  background:var(--navy); color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--teal)}
+.deck{width:100%}
+.slide{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:5vh 6vw;
+  scroll-snap-align:start;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.deck.paged{height:100vh;overflow:hidden;scroll-snap-type:y mandatory}
+.deck.scroll{height:auto}
+.deck.scroll{scroll-snap-type:y proximity}
+.bg-cream{background:var(--cream)}
+.bg-navy{background:var(--navy)}
+.bg-navy *{}
+.inner{width:100%;max-width:var(--maxw);margin:0 auto}
+.kicker{font-size:.85rem;font-weight:800;letter-spacing:.22em;color:var(--teal);margin-bottom:.5rem}
+.kicker.red{color:var(--red)}
+.kicker.sea{color:var(--sea)}
+h1.title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:var(--navy);line-height:1.12;margin-bottom:.6rem}
+.bg-navy h1.title,.bg-navy h2{color:var(--white)}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:.5rem}
+.sub{font-size:clamp(.95rem,1.5vw,1.15rem);color:var(--grey);font-style:italic;margin-bottom:1.4rem}
+.bg-navy .sub{color:var(--mint)}
+p{line-height:1.6}
+.badge-row{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem}
+.tbadge{
+  flex:none;width:74px;height:74px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:.8rem;line-height:1.05;text-align:center;
+}
+.tbadge.teal{background:var(--teal)} .tbadge.sea{background:var(--sea)}
+.tbadge.gold{background:var(--gold)} .tbadge.navy{background:var(--navy)}
+.cards{display:grid;gap:1.1rem;margin-top:.4rem}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--white);border-radius:16px;padding:1.5rem 1.6rem;
+  box-shadow:0 6px 20px rgba(11,57,84,.10);
+}
+.card.dark{background:var(--navy);color:#fff}
+.card.tealtop{border-top:6px solid var(--teal)}
+.card.navytop{border-top:6px solid var(--navy)}
+.card.seatop{border-top:6px solid var(--sea)}
+.card.goldtop{border-top:6px solid var(--gold)}
+.card.linetop{border-top:6px solid var(--line)}
+.card h3{font-size:1.25rem;color:var(--navy);margin-bottom:.5rem;font-weight:800}
+.card.dark h3{color:var(--mint)}
+.card p{font-size:.98rem;color:var(--dark);line-height:1.55}
+.card.dark p,.card.dark li{color:#fff}
+.card .cap{font-size:.9rem;color:var(--grey);font-style:italic;margin-bottom:.6rem}
+.card.dark .cap{color:var(--sea)}
+.card ul{list-style:none;margin-top:.3rem}
+.card li{position:relative;padding-left:1.1rem;margin-bottom:.55rem;font-size:.98rem;line-height:1.5}
+.card li::before{content:"\2022";position:absolute;left:0;color:var(--teal);font-weight:800}
+.card.dark li::before{color:var(--sea)}
+.card li.strong{font-weight:800;color:var(--navy)}
+.card.dark li.strong{color:var(--mint)}
+.chip{width:54px;height:54px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;flex:none}
+.chip.teal{background:var(--teal)}.chip.sea{background:var(--sea)}.chip.navy{background:var(--navy)}.chip.gold{background:var(--gold)}.chip.red{background:var(--red)}
+.chip-row{display:flex;align-items:center;gap:.9rem;margin-bottom:.7rem}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:.3rem 0 1.2rem}
+.kpi{background:#fff;border-radius:14px;padding:1.1rem;text-align:center;box-shadow:0 6px 20px rgba(11,57,84,.10)}
+.kpi .num{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;line-height:1}
+.kpi .lab{font-size:.9rem;color:var(--grey);margin-top:.35rem}
+.arow{display:grid;grid-template-columns:120px 1fr 1.1fr;gap:1rem;align-items:center;
+  background:#12455F;border-radius:10px;padding:.85rem 1.1rem;margin-bottom:.55rem;border-left:6px solid var(--sea)}
+.arow.last{border-left-color:var(--gold)}
+.arow .t{color:var(--sea);font-weight:800}
+.arow .h{color:#fff;font-weight:800;font-size:1.05rem}
+.arow .d{color:var(--mint);font-size:.92rem}
+.pill{display:inline-block;padding:.3rem .9rem;border-radius:20px;font-weight:800;font-size:.85rem;color:#fff}
+.pill.teal{background:var(--teal)}.pill.sea{background:var(--sea)}.pill.gold{background:var(--gold)}.pill.red{background:var(--red)}
+.slido{
+  margin-top:1.1rem;border:2px dashed var(--sea);border-radius:14px;
+  background:#fff;overflow:hidden;
+}
+.slido .head{
+  display:flex;align-items:center;gap:.6rem;background:var(--sea);color:#fff;
+  padding:.6rem 1rem;font-weight:800;font-size:.95rem
+}
+.slido .head .dot{width:10px;height:10px;border-radius:50%;background:#fff;opacity:.9}
+.slido .body{padding:1rem 1.1rem}
+.slido .q{font-weight:800;color:var(--navy);margin:.2rem 0 .5rem;font-size:1.02rem}
+.slido .opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.4rem}
+.slido .opt{background:var(--lightcard);color:var(--dark);border-radius:8px;padding:.4rem .8rem;font-size:.9rem}
+.slido .open{background:#FFF7EC;border:1px solid var(--gold);border-radius:8px;padding:.5rem .8rem;font-size:.9rem;color:#7a5a25}
+.slido iframe{width:100%;height:430px;border:0;display:block}
+.slido .placeholder{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  background:var(--lightcard);color:var(--grey);padding:1.4rem;font-size:.95rem;text-align:center
+}
+.slido .qr{width:90px;height:90px;border:2px dashed var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--grey);font-weight:800;flex:none;background:#fff;text-align:center}
+.live{
+  display:inline-flex;align-items:center;gap:.5rem;background:#FF0000;color:#fff;
+  font-weight:800;font-size:.8rem;padding:.28rem .7rem;border-radius:6px;letter-spacing:.05em
+}
+.live .b{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.note{font-size:.92rem;color:var(--grey);font-style:italic;text-align:center;margin-top:1.1rem}
+.bg-navy .note{color:var(--mint)}
+.foot{font-size:.78rem;color:var(--mint);margin-top:1.4rem}
+.crow{display:grid;grid-template-columns:54px 1fr;gap:1rem;align-items:center;background:#12455F;border-radius:10px;padding:.8rem 1rem;margin-bottom:.55rem}
+.crow .n{width:42px;height:42px;border-radius:50%;background:var(--sea);color:var(--navy);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.crow .ct{color:#fff}
+.crow .ct b{display:block;font-size:1.05rem;margin-bottom:.15rem}
+.crow .ct span{color:var(--mint);font-size:.92rem}
+.profile{display:grid;grid-template-columns:300px 1fr;gap:1.3rem;align-items:start}
+.pcard{background:var(--navy);border-radius:16px;padding:1.4rem;text-align:center;color:#fff}
+.pcard .av{width:96px;height:96px;border-radius:50%;background:var(--teal);margin:.4rem auto .8rem;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.pcard h3{color:#fff;font-size:1.4rem;margin-bottom:.2rem}
+.pcard .role{color:var(--mint);font-size:.9rem;margin-bottom:.9rem}
+.pcard ul{list-style:none;text-align:left}
+.pcard li{position:relative;padding-left:1rem;margin-bottom:.5rem;font-size:.9rem;line-height:1.45}
+.pcard li::before{content:"\2022";position:absolute;left:0;color:var(--sea)}
+.dimtable{display:flex;flex-direction:column;gap:.5rem}
+.dim{display:grid;grid-template-columns:80px 1fr 86px;gap:.6rem;align-items:center;background:#fff;border-radius:8px;padding:.55rem .7rem;box-shadow:0 4px 14px rgba(11,57,84,.08)}
+.dim .name{font-weight:800;color:var(--navy)}
+.dim .desc{font-size:.9rem;color:var(--dark)}
+.dim .tag{font-size:.78rem;font-weight:800;color:#fff;text-align:center;border-radius:6px;padding:.25rem 0}
+.tag.red{background:var(--red)}.tag.sea{background:var(--sea)}.tag.gold{background:var(--gold)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.twocol.bias{grid-template-columns:1.3fr 1fr}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem}
+.step{background:#fff;border-radius:12px;padding:1rem .7rem;text-align:center;box-shadow:0 6px 18px rgba(11,57,84,.10);border-top:5px solid var(--teal)}
+.step .sn{width:42px;height:42px;border-radius:50%;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto .5rem}
+.step h4{font-size:1rem;color:var(--navy);margin-bottom:.4rem}
+.step p{font-size:.8rem;color:var(--dark);line-height:1.35}
+.step .min{display:inline-block;margin-top:.5rem;background:var(--lightcard);border-radius:6px;padding:.2rem .6rem;font-size:.8rem;font-weight:800}
+.dhead{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.6rem}
+.ctxband{background:var(--lightcard);border-radius:10px;padding:.9rem 1.1rem;display:flex;gap:.8rem;align-items:center;margin-bottom:1rem}
+.ctxband .chip{width:42px;height:42px;font-size:1rem}
+.ctxband p{font-size:1rem;color:var(--dark)}
+.guidebox{background:var(--navy);border-radius:12px;padding:1.1rem;color:#fff}
+.guidebox .gh{display:flex;align-items:center;gap:.5rem;color:var(--mint);font-weight:800;margin-bottom:.6rem}
+.guidebox p{font-style:italic;font-size:1.02rem;line-height:1.5}
+.rescard{background:#fff;border-radius:16px;padding:1.3rem;text-align:center;box-shadow:0 6px 20px rgba(11,57,84,.10)}
+.rescard img.qr{width:150px;height:150px;margin:.3rem auto .8rem}
+.rescard h3{font-size:1.15rem;color:var(--navy);margin-bottom:.4rem}
+.rescard p{font-size:.9rem;color:var(--dark);margin-bottom:.8rem;min-height:2.6em}
+.rescard .link{display:block;background:var(--lightcard);border-radius:8px;padding:.6rem;font-size:.82rem;font-weight:800;text-decoration:none;word-break:break-all}
+#progress{position:fixed;top:0;left:0;height:4px;background:var(--sea);width:0;z-index:50;transition:width .2s}
+#hud{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;gap:.4rem;align-items:center}
+#hud button{background:var(--navy);color:#fff;border:0;width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25);opacity:.92}
+#hud button:hover{opacity:1}
+#counter{background:rgba(11,57,84,.9);color:#fff;border-radius:20px;padding:.4rem .9rem;font-size:.85rem;font-weight:700}
+#modetoggle{position:fixed;left:16px;bottom:16px;z-index:50;background:var(--teal);color:#fff;border:0;border-radius:20px;padding:.5rem 1rem;font-size:.8rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:820px){
+  .g2,.g3,.g4,.kpis,.steps,.twocol,.twocol.bias,.profile{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .arow{grid-template-columns:90px 1fr;gap:.5rem}
+  .arow .d{display:none}
+  .dim{grid-template-columns:64px 1fr 72px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="deck paged" id="deck">
+<section class="slide bg-navy"><div class="inner">
+  <div style="margin-bottom:1rem"><span class="live"><span class="b"></span>YouTube 直播中</span></div>
+  <div class="kicker sea">115年度 桃園市政府衛生局</div>
+  <h1 class="title">跨專業團隊交流共識營</h1>
+  <p class="sub" style="font-style:normal;color:var(--mint);font-size:1.2rem">篩檢 → 轉介 → 追蹤 → 後測　共同精進 ICOPE 服務作業標準流程</p>
+  <div class="cards g3" style="margin-top:2rem">
+    <div><div class="kicker sea">辦理日期</div><p style="color:#fff">115年6月17日 (三) 14:00-16:00</p></div>
+    <div><div class="kicker sea">辦理形式</div><p style="color:#fff">實體外加 YouTube 線上直播</p></div>
+    <div><div class="kicker sea">主持人</div><p style="color:#fff">鍾孟修 職能治療師</p></div>
+  </div>
+  <div style="margin-top:1.6rem;display:flex;align-items:center;gap:1.2rem;background:rgba(255,255,255,.08);border:1px solid var(--sea);border-radius:14px;padding:1.1rem 1.3rem;max-width:560px">
+    <img src="data:image/png;base64,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" alt="線上簽到 QR" style="width:120px;height:120px;border-radius:8px;background:#fff;padding:6px;flex:none">
+    <div>
+      <div class="kicker sea" style="margin-bottom:.3rem">報到第一步</div>
+      <p style="color:#fff;font-weight:800;font-size:1.15rem;margin-bottom:.3rem">線上簽到表</p>
+      <p style="color:var(--mint);font-size:.92rem;margin-bottom:.5rem">請掃描 QR 或點擊連結完成簽到</p>
+      <a href="https://forms.gle/q1xJnJY1W7mY9uKQ6" target="_blank" style="display:inline-block;background:var(--sea);color:#fff;font-weight:800;font-size:.88rem;padding:.45rem .9rem;border-radius:8px;text-decoration:none;word-break:break-all">forms.gle/q1xJnJY1W7mY9uKQ6</a>
+    </div>
+  </div>
+  <p class="foot">主辦單位：桃園市政府衛生局　｜　協辦單位：社團法人台灣生活復能健康促進協會</p>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="kicker">HOW　今天怎麼參與互動</div>
+  <h2>線上看直播、用兩個管道發聲</h2>
+  <p class="sub">看不到臉、不開麥也沒關係 ── 你的留言與投票，主持人都會即時看見</p>
+  <div class="cards g2">
+    <div class="card tealtop"><div class="chip-row"><span class="chip teal">💬</span><h3>YouTube 留言區</h3></div>
+      <ul><li>有想法、有疑問，直接在直播留言區打字</li>
+      <li>主持人會在每個議題收尾時，唸出代表性的留言</li>
+      <li>請在留言前面加上單位簡稱，方便辨識（例：八德衛生所）</li></ul></div>
+    <div class="card seatop"><div class="chip-row"><span class="chip sea">📊</span><h3>Slido 即時投票／問答</h3></div>
+      <ul><li>每個議題會出現 Slido 題目：投票＋開放文字</li>
+      <li>手機掃 QR 或開 slido.com 輸入活動代碼即可參與</li>
+      <li>投票結果即時顯示，現場資源代表直接回應</li></ul></div>
+  </div>
+  <div class="slido"><div class="head"><span class="dot"></span>開場暖身・Slido 試水溫</div><div class="body">
+    <div class="q">📊 你現在從哪裡加入我們？</div>
+    <div class="opts"><span class="opt">醫療院所</span><span class="opt">衛生所</span><span class="opt">醫事機構</span><span class="opt">資源中心／據點</span><span class="opt">其他</span></div>
+    <div class="open">💬 用一個詞形容你今天最想帶走的東西</div>
+    <div class="placeholder"><div class="qr">Slido<br>QR</div><div>把開場題建立於 Slido 後，貼入嵌入網址即可即時顯示；現在先讓大家熟悉操作。</div></div>
+  </div></div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="kicker">WHY　為何辦理本共識營</div>
+  <h2>本場共識營的核心目標</h2>
+  <div class="cards g2">
+    <div class="card"><div class="chip-row"><span class="chip teal">🗺️</span><h3>精進服務作業標準流程</h3></div><p>邀集計畫院所與運動及社區端轉介資源單位，針對「篩檢—轉介—追蹤—後測」服務生命週期，共同建立 SOP。</p></div>
+    <div class="card"><div class="chip-row"><span class="chip teal">🤝</span><h3>強化跨專業團隊合作</h3></div><p>透過跨專業對話，整合醫療評估端與社區資源觀點，解決第一線行政阻力。</p></div>
+    <div class="card"><div class="chip-row"><span class="chip teal">🔄</span><h3>落實行政減負</h3></div><p>簡化醫療與非醫療資源之間的溝通管道，降低基層人員的行政負擔。</p></div>
+    <div class="card"><div class="chip-row"><span class="chip teal">📈</span><h3>提升後測達成率</h3></div><p>建立有效追蹤機制，強化個案及家屬返回院所進行後測的動機。</p></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="kicker">WHO　今天在線上與線下的我們</div>
+  <h2>評估端 × 資源端的對話</h2>
+  <div class="cards g2">
+    <div class="card tealtop"><h3 style="color:var(--teal)">實體現場｜出席單位</h3><p class="cap">指導專家、衛生局與轉介資源代表</p>
+      <ul><li class="strong">指導專家｜倪麗芬 副教授（長庚科技大學護理所）</li>
+      <li class="strong">衛生局｜呂峻瑋 股長、黃秀芝</li>
+      <li>社區營養推廣中心｜賴彥樺</li>
+      <li>桃園市平鎮國民運動中心｜李方筑</li>
+      <li>八德區銀髮健身俱樂部｜吳庭筠</li>
+      <li>中壢悅齡社區關懷據點｜劉耀鴻</li>
+      <li>和頌銀髮健身俱樂部｜李思賢</li>
+      <li>心理衛生中心 關懷員督導｜邱筠茹</li>
+      <li>長期照護科 照專督導｜莊愷玟、邱郁婷</li></ul></div>
+    <div class="card dark seatop"><h3>線上參與｜評估端（YouTube）</h3><p class="cap">第一線執行篩檢、發出轉介的單位</p>
+      <ul><li>ICOPE 計畫醫療院所評估人員</li><li>各區衛生所 ICOPE 承辦與評估人員</li><li>醫事機構 ICOPE 服務人員</li><li>40+逆齡運動俱樂部｜劉芷瑄（線上參與）</li></ul>
+      <p style="color:var(--gold);font-weight:800;margin-top:.8rem">今天的玩法：線上用留言＋Slido「出題」、現場單位「接題」</p></div>
+  </div>
+  <p class="note">評估端最知道哪裡卡，資源端最知道怎麼接 ── 今天就是讓兩端隔著螢幕也能直接對話。</p>
+</div></section>
+<section class="slide bg-navy"><div class="inner">
+  <div class="kicker sea">AGENDA　今日議程總覽</div>
+  <h2>120 分鐘・五個時段</h2>
+  <div style="margin-top:1rem">
+    <div class="arow"><div class="t">0–15 min</div><div class="h">數據回顧與政策導引</div><div class="d">桃園市執行現況、轉介斷點與後測挑戰</div></div>
+    <div class="arow"><div class="t">15–45 min</div><div class="h">議題一：跨專業個案照護共識</div><div class="d">雙重衰退異常個案，整合醫療與社區觀點</div></div>
+    <div class="arow"><div class="t">45–75 min</div><div class="h">議題二：流程精進與行政減壓</div><div class="d">釐清資源窗口、簡化跨資源溝通管道</div></div>
+    <div class="arow"><div class="t">75–105 min</div><div class="h">議題三：提升後測達成率策略</div><div class="d">有效追蹤機制，強化個案返院動機</div></div>
+    <div class="arow last"><div class="t">105–120 min</div><div class="h">總結與數位賦能計畫</div><div class="d">共識網頁、電子書、協力 LINE 社群</div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="kicker">HOW　每個議題的討論怎麼跑</div>
+  <h2>每題 30 分鐘・直播互動六步驟</h2>
+  <div class="steps">
+    <div class="step" style="border-top-color:var(--teal)"><div class="sn" style="background:var(--teal)">1</div><h4>主持人破題</h4><p>說明本題要解決什麼</p><span class="min">3分</span></div>
+    <div class="step" style="border-top-color:var(--sea)"><div class="sn" style="background:var(--sea)">2</div><h4>Slido 投票</h4><p>線上掃碼投票＋留言困境；現場桌邊交流</p><span class="min">5分</span></div>
+    <div class="step" style="border-top-color:var(--navy)"><div class="sn" style="background:var(--navy)">3</div><h4>摘讀結果</h4><p>主持人唸出票選最高與精選留言</p><span class="min">3分</span></div>
+    <div class="step" style="border-top-color:var(--gold)"><div class="sn" style="background:var(--gold)">4</div><h4>資源端回應</h4><p>現場各資源代表逐一回應「怎麼接」</p><span class="min">10分</span></div>
+    <div class="step" style="border-top-color:var(--sea)"><div class="sn" style="background:var(--sea)">5</div><h4>留言追問</h4><p>主持人挑 YouTube 留言追問資源端</p><span class="min">4分</span></div>
+    <div class="step" style="border-top-color:var(--teal)"><div class="sn" style="background:var(--teal)">6</div><h4>專家收斂</h4><p>專家回饋，主持人定調本題共識</p><span class="min">5分</span></div>
+  </div>
+  <p class="note">線上以「Slido 投票＋YouTube 留言」參與，全程不需開麥、不需露臉。</p>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="badge-row"><div class="tbadge teal">0–15<br>min</div><div><h2 style="margin:0">時段一　數據回顧 (1)：4月單月</h2><p class="sub" style="margin:0">資料區間 115/04/01–04/30｜來源：國健署長者功能評估服務速報</p></div></div>
+  <div class="kpis">
+    <div class="kpi"><div class="num" style="color:var(--navy)">4,875</div><div class="lab">服務量(初評)</div></div>
+    <div class="kpi"><div class="num" style="color:var(--teal)">9.5%</div><div class="lab">達成率</div></div>
+    <div class="kpi"><div class="num" style="color:var(--red)">-9.9%</div><div class="lab">同期比較</div></div>
+    <div class="kpi"><div class="num" style="color:var(--sea)">95.9%</div><div class="lab">複評率</div></div>
+  </div>
+  <div class="twocol">
+    <div class="card"><h3 style="font-size:1.05rem">桃園市 vs 全國　四月異常率（前三高，%）</h3>
+      <svg viewBox="0 0 560 240" style="width:100%;height:auto"><line x1="40" y1="200" x2="550" y2="200" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="204" font-size="11" fill="#5B6B73" text-anchor="end">0</text><line x1="40" y1="168" x2="550" y2="168" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="172" font-size="11" fill="#5B6B73" text-anchor="end">3</text><line x1="40" y1="136" x2="550" y2="136" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="140" font-size="11" fill="#5B6B73" text-anchor="end">6</text><line x1="40" y1="104" x2="550" y2="104" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="108" font-size="11" fill="#5B6B73" text-anchor="end">9</text><line x1="40" y1="72" x2="550" y2="72" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="76" font-size="11" fill="#5B6B73" text-anchor="end">12</text><line x1="40" y1="40" x2="550" y2="40" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="44" font-size="11" fill="#5B6B73" text-anchor="end">15</text><rect x="80" y="71" width="36" height="129" rx="3" fill="#028090"/><text x="98" y="66" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">12.1%</text><rect x="120" y="90" width="36" height="110" rx="3" fill="#8FE3D6"/><text x="138" y="85" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">10.3%</text><text x="120" y="218" font-size="13" fill="#5B6B73" text-anchor="middle">視力</text><rect x="240" y="121" width="36" height="79" rx="3" fill="#028090"/><text x="258" y="116" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">7.4%</text><rect x="280" y="125" width="36" height="75" rx="3" fill="#8FE3D6"/><text x="298" y="120" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">7.0%</text><text x="280" y="218" font-size="13" fill="#5B6B73" text-anchor="middle">聽力</text><rect x="400" y="161" width="36" height="39" rx="3" fill="#028090"/><text x="418" y="156" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">3.7%</text><rect x="440" y="135" width="36" height="65" rx="3" fill="#8FE3D6"/><text x="458" y="130" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">6.1%</text><text x="440" y="218" font-size="13" fill="#5B6B73" text-anchor="middle">行動</text></svg><div style="display:flex;gap:1.2rem;justify-content:center;margin-top:.5rem;font-size:.85rem;color:#5B6B73"><span style="display:inline-flex;align-items:center;gap:.35rem"><span style="width:12px;height:12px;border-radius:2px;background:#028090;display:inline-block"></span>桃園市</span><span style="display:inline-flex;align-items:center;gap:.35rem"><span style="width:12px;height:12px;border-radius:2px;background:#8FE3D6;display:inline-block"></span>全國</span></div></div>
+    <div class="card dark"><h3>數據看點</h3><ul>
+      <li>達成率 9.5%，略低於全國 10.2%。</li>
+      <li class="strong">同期比較 -9.9%，較去年同期退步。</li>
+      <li>複評率 95.9% 佳，異常個案幾乎都有複評。</li>
+      <li>視力 12.1% 為桃園最突出的異常面向。</li></ul></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="badge-row"><div class="tbadge teal">0–15<br>min</div><div><h2 style="margin:0">時段一　數據回顧 (2)：1–4月累積</h2><p class="sub" style="margin:0">資料區間 115/01/01–04/30｜來源：國健署長者功能評估服務速報</p></div></div>
+  <div class="kpis">
+    <div class="kpi"><div class="num" style="color:var(--navy)">15,930</div><div class="lab">累積服務量</div></div>
+    <div class="kpi"><div class="num" style="color:var(--teal)">31.2%</div><div class="lab">累積達成率</div></div>
+    <div class="kpi"><div class="num" style="color:var(--red)">-18.1%</div><div class="lab">同期比較</div></div>
+    <div class="kpi"><div class="num" style="color:var(--sea)">96.1%</div><div class="lab">複評率</div></div>
+  </div>
+  <div class="twocol">
+    <div class="card"><h3 style="font-size:1.05rem">累積達成率　桃園市 vs 全國（%）</h3>
+      <svg viewBox="0 0 560 240" style="width:100%;height:auto"><line x1="40" y1="200" x2="550" y2="200" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="204" font-size="11" fill="#5B6B73" text-anchor="end">0</text><line x1="40" y1="168" x2="550" y2="168" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="172" font-size="11" fill="#5B6B73" text-anchor="end">12</text><line x1="40" y1="136" x2="550" y2="136" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="140" font-size="11" fill="#5B6B73" text-anchor="end">24</text><line x1="40" y1="104" x2="550" y2="104" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="108" font-size="11" fill="#5B6B73" text-anchor="end">36</text><line x1="40" y1="72" x2="550" y2="72" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="76" font-size="11" fill="#5B6B73" text-anchor="end">48</text><line x1="40" y1="40" x2="550" y2="40" stroke="#E2E8F0" stroke-width="1"/><text x="34" y="44" font-size="11" fill="#5B6B73" text-anchor="end">60</text><rect x="140" y="117" width="36" height="83" rx="3" fill="#028090"/><text x="158" y="112" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">31.2%</text><text x="160" y="218" font-size="13" fill="#5B6B73" text-anchor="middle">桃園市</text><rect x="380" y="107" width="36" height="93" rx="3" fill="#8FE3D6"/><text x="398" y="102" font-size="11" fill="#1B2B33" text-anchor="middle" font-weight="700">34.8%</text><text x="400" y="218" font-size="13" fill="#5B6B73" text-anchor="middle">全國</text></svg></div>
+    <div class="card dark"><h3>數據看點</h3><ul>
+      <li>累積達成率 31.2%，落後全國 34.8%。</li>
+      <li class="strong">同期比較 -18.1%，落後幅度比單月更大。</li>
+      <li>距年度目標仍有約 7 成量能缺口。</li>
+      <li>累積異常率：視力10.2%、聽力6.9%、行動3.2%。</li></ul></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="kicker red">INSIGHT　數據告訴我們的事</div>
+  <h2>數據浮現的四個關鍵問題</h2>
+  <div class="cards g2">
+    <div class="card"><div class="chip-row"><span class="chip red">↓</span><h3>達成率落後</h3></div><p>單月 9.5%、累積 31.2% 皆低於全國，年度目標壓力大。</p><p style="color:var(--teal);font-weight:800;font-style:italic;margin-top:.4rem">→ 量能從哪裡補？</p></div>
+    <div class="card"><div class="chip-row"><span class="chip teal">⇄</span><h3>視力異常突出</h3></div><p>視力異常率 10–12% 為各面向最高，後續轉介量大。</p><p style="color:var(--teal);font-weight:800;font-style:italic;margin-top:.4rem">→ 視力轉介順暢嗎？</p></div>
+    <div class="card"><div class="chip-row"><span class="chip red">↻</span><h3>同期退步</h3></div><p>單月 -9.9%、累積 -18.1%，較去年同期明顯下滑。</p><p style="color:var(--teal);font-weight:800;font-style:italic;margin-top:.4rem">→ 是哪一段卡住？</p></div>
+    <div class="card"><div class="chip-row"><span class="chip teal">📋</span><h3>後測待強化</h3></div><p>複評率雖高，但介入後的後測動機仍是挑戰。</p><p style="color:var(--teal);font-weight:800;font-style:italic;margin-top:.4rem">→ 個案如何回流？</p></div>
+  </div>
+  <p class="note">接下來四題，每題都會請線上夥伴用 Slido 投票＋留言，我們一起把問題講清楚。</p>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill" style="background:var(--red)">問題一</span>
+    <span style="color:var(--grey);font-style:italic">INSIGHT・數據浮現的關鍵問題</span>
+    <span class="pill gold" style="margin-left:auto">Slido 投票進行中</span></div>
+  <h2>達成率落後，量能從哪裡補？</h2>
+  <div class="ctxband" style="background:#FBE7EA">
+    <span class="chip" style="background:var(--red);width:42px;height:42px;font-size:1rem">↓</span>
+    <p><b style="color:var(--red)">現況　</b>單月 9.5%、累積 31.2%，皆低於全國（10.2% / 34.8%）</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--grey)">可能原因（先想想）</h3><ul><li>篩檢人力與時段不足，能服務的量能有限。</li><li>民眾對 ICOPE 認知低，主動受測意願不高。</li><li>據點、社區活動與篩檢的結合度仍可加強。</li></ul></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・問題一</div><div class="body"><div class="q">📊 你的單位，量能最大的瓶頸是？</div><div class="opts"><span class="opt">篩檢人力不足</span><span class="opt">時段／空間有限</span><span class="opt">民眾受測意願低</span><span class="opt">名單來源有限</span><span class="opt">系統登錄太花時間</span></div><div class="open">💬 開放回答：有沒有一個現成的社區場合，可以順帶做篩檢？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill" style="background:var(--teal)">問題二</span>
+    <span style="color:var(--grey);font-style:italic">INSIGHT・數據浮現的關鍵問題</span>
+    <span class="pill gold" style="margin-left:auto">Slido 投票進行中</span></div>
+  <h2>視力異常突出，轉介順暢嗎？</h2>
+  <div class="ctxband" style="background:var(--lightcard)">
+    <span class="chip" style="background:var(--teal);width:42px;height:42px;font-size:1rem">⇄</span>
+    <p><b style="color:var(--teal)">現況　</b>視力異常率 10–12%，為六面向中最高，後續轉介量最大</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--grey)">可能原因（先想想）</h3><ul><li>視力異常後，不確定該轉眼科、長照或社區資源。</li><li>轉介後缺乏回覆，不知道個案有沒有真的就醫。</li><li>長者對「看不清楚」習以為常，不願就醫。</li></ul></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・問題二</div><div class="body"><div class="q">📊 視力轉介，最常斷在哪一步？</div><div class="opts"><span class="opt">不知道轉去哪</span><span class="opt">轉了沒有回覆</span><span class="opt">個案不願就醫</span><span class="opt">家屬不配合</span><span class="opt">沒有追蹤機制</span></div><div class="open">💬 開放回答：你目前怎麼處理視力異常個案？哪種做法最有效？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill" style="background:var(--red)">問題三</span>
+    <span style="color:var(--grey);font-style:italic">INSIGHT・數據浮現的關鍵問題</span>
+    <span class="pill gold" style="margin-left:auto">Slido 投票進行中</span></div>
+  <h2>同期退步，是哪一段卡住？</h2>
+  <div class="ctxband" style="background:#FBE7EA">
+    <span class="chip" style="background:var(--red);width:42px;height:42px;font-size:1rem">↻</span>
+    <p><b style="color:var(--red)">現況　</b>單月 -9.9%、累積 -18.1%，較去年同期明顯下滑</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--grey)">可能原因（先想想）</h3><ul><li>人力異動或業務增加，排擠了篩檢時間。</li><li>去年的合作場域或名單今年沒有延續。</li><li>流程變動、系統登錄變繁瑣，影響執行速度。</li></ul></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・問題三</div><div class="body"><div class="q">📊 和去年比，今年掉最多的是哪一段？</div><div class="opts"><span class="opt">篩檢量變少</span><span class="opt">轉介卡住</span><span class="opt">後測沒跟上</span><span class="opt">人力異動</span><span class="opt">場域沒延續</span></div><div class="open">💬 開放回答：有哪個去年有效、今年卻沒延續的做法，值得找回來？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill" style="background:var(--teal)">問題四</span>
+    <span style="color:var(--grey);font-style:italic">INSIGHT・數據浮現的關鍵問題</span>
+    <span class="pill gold" style="margin-left:auto">Slido 投票進行中</span></div>
+  <h2>後測待強化，個案如何回流？</h2>
+  <div class="ctxband" style="background:var(--lightcard)">
+    <span class="chip" style="background:var(--teal);width:42px;height:42px;font-size:1rem">📋</span>
+    <p><b style="color:var(--teal)">現況　</b>複評率雖高，但介入後的「後測」回流動機仍是挑戰</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--grey)">可能原因（先想想）</h3><ul><li>個案介入後就斷了聯繫，沒有人主動提醒回測。</li><li>長者與家屬不理解「後測」的意義與必要性。</li><li>缺乏明確的回流時程與負責提醒的窗口。</li></ul></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・問題四</div><div class="body"><div class="q">📊 提高後測率，最關鍵的是？</div><div class="opts"><span class="opt">有人主動提醒</span><span class="opt">初評就約好時間</span><span class="opt">家屬一起參與</span><span class="opt">誘因／好處</span><span class="opt">簡化回測流程</span></div><div class="open">💬 開放回答：你的單位目前怎麼追蹤、提醒個案回來後測？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="badge-row"><div class="tbadge sea">15–45<br>min</div><div><h2 style="margin:0">議題一　跨專業個案照護共識</h2><p class="sub" style="margin:0">今日討論個案 ── 以一位真實情境的長者，貫穿三個討論面向</p></div></div>
+  <div class="profile">
+    <div class="pcard"><div class="av">🧓</div><h3>陳爺爺　82歲</h3><div class="role">社區據點轉介・首次 ICOPE 初評</div>
+      <ul><li>居住：與配偶同住，子女在外縣市</li><li>慢性病：高血壓、退化性關節炎</li><li>近況：近半年較少出門、體重下降</li><li>由社區據點完成 ICOPE 初篩</li></ul></div>
+    <div><h3 style="color:var(--teal);margin-bottom:.7rem">ICOPE 初評結果（六面向）</h3>
+      <div class="dimtable">
+        <div class="dim"><span class="name">認知</span><span class="desc">記憶3物／時間地點 → 部分答錯</span><span class="tag red">異常</span></div>
+        <div class="dim"><span class="name">行動</span><span class="desc">5次起立坐下 → 偏慢</span><span class="tag red">異常</span></div>
+        <div class="dim"><span class="name">營養</span><span class="desc">近期體重下降、食慾不振</span><span class="tag red">異常</span></div>
+        <div class="dim"><span class="name">視力</span><span class="desc">看遠看近吃力</span><span class="tag red">異常</span></div>
+        <div class="dim"><span class="name">聽力</span><span class="desc">氣音測試 → 通過</span><span class="tag sea">正常</span></div>
+        <div class="dim"><span class="name">憂鬱</span><span class="desc">PHQ-2 → 情緒低落傾向</span><span class="tag gold">待追蹤</span></div>
+      </div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill sea">討論一</span>
+    <span style="color:var(--grey);font-style:italic">議題一・跨專業個案照護共識</span>
+    <span class="pill gold" style="margin-left:auto">Slido＋留言互動</span></div>
+  <h2>多面向異常，誰先接手？</h2>
+  <div class="ctxband"><span class="chip navy" style="width:42px;height:42px;font-size:1rem">🧠</span><p>陳爺爺認知、行動、營養、視力同時亮紅燈。多重衰退時，第一棒該由誰啟動？</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--teal)">討論重點</h3><ul><li>醫療端（醫師/個管師）與社區端（據點/運動中心）如何分工？</li><li>哪些面向需要先轉醫療確診，哪些可直接進社區介入？</li><li>誰負責統整、避免個案被「重複轉介」或「漏接」？</li></ul>
+      <div class="guidebox" style="margin-top:.8rem"><div class="gh">💡 主持人引導</div><p>「在你的單位，多重異常個案的「主責窗口」通常是誰？」</p></div></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・討論一</div><div class="body"><div class="q">📊 像陳爺爺這樣，你會先轉去哪裡？</div><div class="opts"><span class="opt">醫療確診</span><span class="opt">失智共照中心</span><span class="opt">營養推廣中心</span><span class="opt">長照照管中心</span><span class="opt">社區據點</span></div><div class="open">💬 開放回答：在你的單位，多重異常個案的「主責窗口」通常是誰？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill sea">討論二</span>
+    <span style="color:var(--grey);font-style:italic">議題一・跨專業個案照護共識</span>
+    <span class="pill gold" style="margin-left:auto">Slido＋留言互動</span></div>
+  <h2>跨面向交互影響，如何整合判讀？</h2>
+  <div class="ctxband"><span class="chip navy" style="width:42px;height:42px;font-size:1rem">🍱</span><p>視力差 → 不敢出門 → 活動量下降 → 肌少與營養惡化。面向之間彼此牽動。</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--teal)">討論重點</h3><ul><li>醫療評估端如何看待「視力—行動—營養」的連鎖關係？</li><li>社區端能觀察到哪些醫療端看不到的生活細節？</li><li>如何把兩邊的觀察整合成同一份照護方向？</li></ul>
+      <div class="guidebox" style="margin-top:.8rem"><div class="gh">💡 主持人引導</div><p>「你會優先打斷這條惡性循環的哪一環？為什麼？」</p></div></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・討論二</div><div class="body"><div class="q">📊 你覺得陳爺爺的「根源問題」最可能是？</div><div class="opts"><span class="opt">視力導致退縮</span><span class="opt">營養／肌少</span><span class="opt">認知退化</span><span class="opt">情緒低落</span><span class="opt">多重交互</span></div><div class="open">💬 開放回答：你會優先打斷這條惡性循環的哪一環？為什麼？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill sea">討論三</span>
+    <span style="color:var(--grey);font-style:italic">議題一・跨專業個案照護共識</span>
+    <span class="pill gold" style="margin-left:auto">Slido＋留言互動</span></div>
+  <h2>形成共識：下一步怎麼走？</h2>
+  <div class="ctxband"><span class="chip navy" style="width:42px;height:42px;font-size:1rem">🤝</span><p>從各自評估，到一致的行動計畫。讓陳爺爺離開時有明確的下一步。</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--teal)">討論重點</h3><ul><li>短期（1個月內）：先處理哪一個面向？由哪個單位執行？</li><li>中期：營養與行動的社區介入如何銜接？</li><li>回流機制：何時、由誰提醒陳爺爺回院做後測？</li></ul>
+      <div class="guidebox" style="margin-top:.8rem"><div class="gh">💡 主持人引導</div><p>「三個月後，你希望在陳爺爺身上看到什麼改變？」</p></div></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・討論三</div><div class="body"><div class="q">📊 一個月內，你會先動哪一個面向？</div><div class="opts"><span class="opt">視力就醫</span><span class="opt">營養介入</span><span class="opt">行動訓練</span><span class="opt">認知評估</span><span class="opt">情緒支持</span></div><div class="open">💬 開放回答：三個月後，你希望在陳爺爺身上看到什麼改變？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-navy"><div class="inner">
+  <div class="kicker sea">CONSENSUS　議題一・收斂</div>
+  <h2>我們希望達成的共識方向</h2>
+  <p class="sub">彙整 Slido 投票與 YouTube 留言、現場單位回應後，由主持人整理為以下共同方向</p>
+  <div class="crow"><div class="n">1</div><div class="ct"><b>單一窗口統整</b><span>每位多重異常個案，指定一個「主責窗口」統整轉介，避免漏接與重複。</span></div></div>
+  <div class="crow"><div class="n">2</div><div class="ct"><b>醫療社區分流原則</b><span>建立「需確診先轉醫療、可介入直接進社區」的共同分流判斷標準。</span></div></div>
+  <div class="crow"><div class="n">3</div><div class="ct"><b>面向連動的整合視角</b><span>以個案整體生活為中心，看見視力—行動—營養等面向的連鎖影響。</span></div></div>
+  <div class="crow"><div class="n">4</div><div class="ct"><b>明確的下一步與回流</b><span>每個案離會時都有：負責單位、時程、與後測回流的提醒機制。</span></div></div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="badge-row"><div class="tbadge teal">45–75<br>min</div><div><h2 style="margin:0">議題二　流程精進與行政減壓</h2><p class="sub" style="margin:0">先統觀第一線的流程痛點，再逐題討論解方</p></div></div>
+  <div class="cards g4" style="margin-bottom:1rem">
+    <div class="card"><div style="text-align:center"><span class="chip red" style="margin:0 auto .5rem">🔍</span><h3 style="font-size:1.05rem">找不到對接窗口</h3><p style="font-size:.88rem">想轉介卻不知道該聯絡哪個單位、哪個人。</p></div></div>
+    <div class="card"><div style="text-align:center"><span class="chip red" style="margin:0 auto .5rem">⇄</span><h3 style="font-size:1.05rem">跨資源溝通耗時</h3><p style="font-size:.88rem">醫療與非醫療資源來回確認，行政成本高。</p></div></div>
+    <div class="card"><div style="text-align:center"><span class="chip red" style="margin:0 auto .5rem">📋</span><h3 style="font-size:1.05rem">轉介文件不一致</h3><p style="font-size:.88rem">各單位格式不同，資訊落差造成漏接。</p></div></div>
+    <div class="card"><div style="text-align:center"><span class="chip red" style="margin:0 auto .5rem">📞</span><h3 style="font-size:1.05rem">問題求助無門</h3><p style="font-size:.88rem">遇到系統或個案困境，缺乏即時支援管道。</p></div></div>
+  </div>
+  <div class="card dark"><h3>今天要逐題討論的兩件事</h3>
+    <ul><li>問題一：如何釐清各區資源單位的聯繫窗口，建立標準化對接機制？</li>
+    <li>問題二：如何降低行政阻力，簡化醫療與非醫療資源之間的溝通管道？</li></ul></div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill sea">新制亮點</span><span style="color:var(--grey);font-style:italic">議題二・流程精進與行政減壓</span></div>
+  <h2>115年起系統新增：異常個案轉介「同意」機制</h2>
+  <p class="sub">登打系統時即詢問個案是否同意資料提供給資源中心，由中心主動聯絡 ── 打通轉介斷點的關鍵工具</p>
+  <div class="cards g2">
+    <div class="card seatop"><div class="dhead"><span class="pill sea">營養異常</span><b style="color:var(--navy)">→ 社區營養推廣中心</b></div>
+      <p>個案同意後，由各縣市社區營養推廣中心依《個人資料保護法》相關規定，主動聯絡個案並提供營養相關服務。</p>
+      <p style="color:var(--sea);font-weight:800;margin-top:.5rem">●同意　○不同意</p></div>
+    <div class="card tealtop"><div class="dhead"><span class="pill teal">認知異常</span><b style="color:var(--navy)">→ 失智共照中心</b></div>
+      <p>個案同意後，由各縣市失智共照中心依《個人資料保護法》相關規定，主動聯絡個案，進一步協助就醫確診與照護資源連結。</p>
+      <p style="color:var(--teal);font-weight:800;margin-top:.5rem">●同意　○不同意</p></div>
+  </div>
+  <div class="twocol bias" style="margin-top:1rem">
+    <div class="card" style="background:var(--lightcard)"><h3 style="font-size:1rem;color:var(--teal)">對流程的意義</h3><p style="font-size:.95rem">從「給名單、等個案自己去」變成「資源中心主動外撥」── 評估端只要在登打當下把同意問好，轉介就自動往前走一步。</p></div>
+    <div class="guidebox"><div class="gh">💡 主持人引導</div><p>「第一線怎麼向長者說明，才能讓同意率提高？歡迎在 Slido／留言分享你的話術。」</p></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill teal">問題一</span>
+    <span style="color:var(--grey);font-style:italic">議題二・流程精進與行政減壓</span>
+    <span class="pill gold" style="margin-left:auto">Slido＋留言互動</span></div>
+  <h2>釐清各區資源單位聯繫窗口</h2>
+  <div class="ctxband"><span class="chip teal" style="width:42px;height:42px;font-size:1.2rem;font-weight:900">01</span><p>「想轉介卻找不到人」是第一線最常見的卡點。本題聚焦如何把六面向資源的對接窗口攤開、講清楚。</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--teal)">討論重點</h3><ul><li>盤點各行政區六面向資源的窗口與聯繫方式。</li><li>建立標準化對接機制：誰是窗口、用什麼管道、回應時效。</li><li>把窗口資訊集中到數位資源地圖，人人查得到。</li></ul>
+      <div class="guidebox" style="margin-top:.8rem"><div class="gh">💡 主持人引導</div><p>「你理想中的「找窗口」方式是什麼？（地圖／名冊／LINE）」</p></div></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・問題一</div><div class="body"><div class="q">📊 你最常需要、卻最難找到窗口的資源是？</div><div class="opts"><span class="opt">營養推廣中心</span><span class="opt">輔具中心</span><span class="opt">心衛中心</span><span class="opt">失智共照</span><span class="opt">運動中心／據點</span></div><div class="open">💬 開放回答：你理想中的「找窗口」方式是什麼？（地圖／名冊／LINE）</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill teal">問題二</span>
+    <span style="color:var(--grey);font-style:italic">議題二・流程精進與行政減壓</span>
+    <span class="pill gold" style="margin-left:auto">Slido＋留言互動</span></div>
+  <h2>降低行政阻力、簡化溝通管道</h2>
+  <div class="ctxband"><span class="chip teal" style="width:42px;height:42px;font-size:1.2rem;font-weight:900">02</span><p>轉介不該是反覆打電話、重填表格。本題聚焦如何讓醫療與非醫療資源之間的溝通更省力。</p></div>
+  <div class="twocol bias">
+    <div class="card"><h3 style="font-size:1.05rem;color:var(--teal)">討論重點</h3><ul><li>推動公版「標準化轉介文件」，一次填寫各單位通用。</li><li>簡化醫療與非醫療（如運動中心、輔具租用）的轉介步驟。</li><li>以協力 LINE 社群作為即時詢問管道。</li></ul>
+      <div class="guidebox" style="margin-top:.8rem"><div class="gh">💡 主持人引導</div><p>「你目前轉介一個個案，大概要花多少時間？卡在哪？」</p></div></div>
+    <div><div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・問題二</div><div class="body"><div class="q">📊 如果只能簡化一個行政步驟，你最想拿掉？</div><div class="opts"><span class="opt">重複填表</span><span class="opt">電話確認</span><span class="opt">等回覆</span><span class="opt">紙本簽核</span><span class="opt">系統登錄</span></div><div class="open">💬 開放回答：你目前轉介一個個案，大概要花多少時間？卡在哪？</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div></div>
+  </div>
+</div></section>
+<section class="slide bg-navy"><div class="inner">
+  <div class="kicker sea">CONSENSUS　議題二・收斂</div>
+  <h2>流程精進的共識方向</h2>
+  <p class="sub">彙整 Slido 投票與留言、現場單位回應，收斂為「三個一」行動方向</p>
+  <div class="crow"><div class="n">1</div><div class="ct"><b>一張資源地圖</b><span>全市六面向窗口集中於數位資源地圖，轉介前先查、不靠人脈。</span></div></div>
+  <div class="crow"><div class="n">2</div><div class="ct"><b>一份公版文件</b><span>推動標準化轉介文件，一次填寫各單位通用，減少資訊落差。</span></div></div>
+  <div class="crow"><div class="n">3</div><div class="ct"><b>一個即時社群</b><span>以協力 LINE 社群作為第一線求助管道，困境當下就有人回應。</span></div></div>
+</div></section>
+<section class="slide bg-cream"><div class="inner">
+  <div class="badge-row"><div class="tbadge gold">105–<br>120</div><div><h2 style="margin:0">想法回饋與問卷填寫</h2><p class="sub" style="margin:0">專家回應結束後，留幾分鐘聽你說 ── 你的回饋決定我們下一步怎麼做</p></div></div>
+  <div class="twocol">
+    <div class="card tealtop"><h3 style="color:var(--teal)">開放想法與建議</h3><p class="cap">針對今天三大議題，還有什麼想補充的？</p>
+      <ul><li>個案照護共識：分流與主責窗口的想法</li><li>流程精進：還有哪個行政環節想簡化</li><li>後測策略：提升回流的其他可行做法</li>
+      <li class="strong">線上夥伴：YouTube 留言，或寫進 Slido 開放題</li></ul></div>
+    <div class="card dark goldtop"><h3>會後問卷（約 3 分鐘）</h3><p class="cap">問卷內容包含：</p>
+      <ul><li>三大議題的想法與建議（開放題）</li><li>今日收穫與整體滿意度</li><li>希望衛生局與承辦後續提供的支援</li><li>服務單位與職類（彙整分析用）</li></ul></div>
+  </div>
+  <div class="slido"><div class="head"><span class="dot"></span>Slido 即時互動・會後回饋</div><div class="body"><div class="q">📊 今天整體最有收穫的部分是？</div><div class="opts"><span class="opt">數據現況</span><span class="opt">個案討論</span><span class="opt">流程精進</span><span class="opt">115新制同意</span><span class="opt">資源連結</span></div><div class="open">💬 開放回答：請填寫會後問卷（連結將貼於聊天室／LINE 社群）</div><div class="placeholder"><div class="qr">Slido<br>QR</div><div>於 Slido 建立本題後，把嵌入網址貼入；或請線上夥伴掃碼至 slido.com 輸入活動代碼參與。</div></div></div></div>
+  <p class="note">Slido 投票與留言＋會後問卷，將彙整為本場共識營成果報告，回饋給所有與會單位。</p>
+</div></section>
+
+<!-- ============ 資源單位分享專區 ============ -->
+<section class="slide bg-navy"><div class="inner">
+  <div class="kicker sea">RESOURCE PARTNERS　資源單位分享專區</div>
+  <h2>六面向轉介資源　單位介紹</h2>
+  <p class="sub" style="font-size:1.15rem">認識每個資源單位在 ICOPE 裡的角色、重要性，以及轉介上怎麼合作<br>篩檢找出問題 → 轉介找對窗口 → 追蹤不漏接 → 後測看見改變</p>
+  <div class="cards g3" style="margin-top:1.4rem">
+    <div class="card dark seatop"><h3>① 社區營養推廣中心</h3><p style="color:#fff">營養面向・複評個案專責窗口</p></div>
+    <div class="card dark seatop"><h3>② 運動中心・銀髮俱樂部</h3><p style="color:#fff">行動體能・肌力與平衡訓練</p></div>
+    <div class="card dark seatop"><h3>③ 社區關懷據點</h3><p style="color:#fff">社區介入・在地承接與回流</p></div>
+    <div class="card dark seatop"><h3>④ 社區心理衛生中心</h3><p style="color:#fff">憂鬱情緒・心理支持資源</p></div>
+    <div class="card dark seatop"><h3>⑤ 長期照護・照管中心</h3><p style="color:#fff">整合照顧・照顧計畫統整</p></div>
+    <div class="card dark seatop"><h3>對照表</h3><p style="color:#fff">異常面向 × 該找哪個單位</p></div>
+  </div>
+</div></section>
+
+<section class="slide bg-cream"><div class="inner">
+  <div class="kicker">OVERVIEW　六面向 × 資源單位對照</div>
+  <h2>一張表看懂：異常面向該找誰</h2>
+  <p class="sub">篩檢出哪一面向異常，就對應到哪個轉介窗口；多重異常則由照管中心統整</p>
+  <div class="dimtable" style="gap:.55rem;margin-top:.6rem">
+    <div class="dim" style="grid-template-columns:140px 1fr 1.1fr"><span class="name" style="color:var(--orange,#E8552D);color:#E8552D">視力／聽力</span><span class="desc">醫療院所、眼科／耳鼻喉科</span><span class="desc" style="color:var(--grey);font-style:italic">確診與矯治</span></div>
+    <div class="dim" style="grid-template-columns:140px 1fr 1.1fr"><span class="name" style="color:var(--teal)">行動／體能</span><span class="desc">運動中心、銀髮健身俱樂部</span><span class="desc" style="color:var(--grey);font-style:italic">肌力與平衡訓練、延緩衰弱</span></div>
+    <div class="dim" style="grid-template-columns:140px 1fr 1.1fr"><span class="name" style="color:var(--sea)">營養</span><span class="desc">社區營養推廣中心、營養師</span><span class="desc" style="color:var(--grey);font-style:italic">營養評估、飲食衛教、複評追蹤</span></div>
+    <div class="dim" style="grid-template-columns:140px 1fr 1.1fr"><span class="name" style="color:var(--gold)">認知</span><span class="desc">失智共照中心、醫療確診</span><span class="desc" style="color:var(--grey);font-style:italic">早期辨識、就醫與照護連結</span></div>
+    <div class="dim" style="grid-template-columns:140px 1fr 1.1fr"><span class="name" style="color:var(--navy)">憂鬱／情緒</span><span class="desc">社區心理衛生中心</span><span class="desc" style="color:var(--grey);font-style:italic">情緒支持、心理衛生資源</span></div>
+    <div class="dim" style="grid-template-columns:140px 1fr 1.1fr"><span class="name" style="color:var(--teal)">整合／照顧</span><span class="desc">長照照管中心、社區關懷據點</span><span class="desc" style="color:var(--grey);font-style:italic">照顧計畫、社區據點介入</span></div>
+  </div>
+  <p class="note">接下來逐一介紹各單位的角色、重要性與轉介合作方式。</p>
+</div></section>
+
+<!-- ① 社區營養推廣中心 (賴彥樺) -->
+<section class="slide bg-navy"><div class="inner">
+  <div class="kicker sea">資源單位分享 ①</div>
+  <h2>社區營養推廣中心</h2>
+  <p class="sub" style="font-size:1.1rem">營養不良複評個案的專責窗口　｜　桃園市政府衛生局 健康促進科 賴彥樺<br>電話 03-3340935 分機 2548　｜　信箱 10040154@mail.tycg.gov.tw</p>
+  <div class="cards g2" style="margin-top:1.2rem">
+    <div class="card dark seatop"><h3>在 ICOPE 裡的重要性</h3>
+      <ul><li>承接「營養」面向異常（複評不良）個案的專責轉介窗口。</li>
+      <li>營養不良會加速肌少、衰弱與其他面向退化，是連動全局的關鍵。</li>
+      <li>由專業營養師提供評估與飲食衛教，把篩檢結果轉成實際介入。</li></ul></div>
+    <div class="card dark goldtop"><h3>轉介與介入方式</h3>
+      <ul><li class="strong">單位有營養師：複評異常個案轉介院內／配合營養師。</li>
+      <li class="strong">單位無營養師：轉介桃園市社區營養推廣中心。</li>
+      <li>系統介入點填【8】、名稱填【社區營養推廣中心】。</li></ul></div>
+  </div>
+</div></section>
+
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill sea">營養單位・作業流程</span><span style="color:var(--grey);font-style:italic">社區營養推廣中心</span></div>
+  <h2>轉介流程：依「單位有無營養師」分流</h2>
+  <div class="twocol">
+    <div class="card seatop"><div class="chip-row"><span class="chip sea">①</span><h3>單位有營養師</h3></div>
+      <p>營養不良複評異常個案，可直接轉介至 <b>院內／配合之營養師</b>。</p>
+      <p style="margin-top:.5rem">系統登打時，介入點類型與名稱依實際情形填寫（如院所填【1】、營養師所屬單位名稱）。</p></div>
+    <div class="card tealtop"><div class="chip-row"><span class="chip teal">②</span><h3>單位無營養師</h3></div>
+      <p>營養不良複評異常個案，請轉介至 <b>桃園市社區營養推廣中心</b>。</p>
+      <div style="background:var(--lightcard);border-radius:8px;padding:.7rem .9rem;margin-top:.6rem">
+        <p style="font-weight:800;color:var(--teal)">系統填報</p>
+        <p>介入點類型填【8】社區營養推廣中心或分中心<br>介入點名稱填【社區營養推廣中心】</p></div></div>
+  </div>
+  <div class="card dark" style="margin-top:1rem"><h3>回覆時效</h3>
+    <ul><li>請於 <b>7 日內</b> 回傳「附件1-ICOPE營養不良複評異常個案轉介單NEW」。</li>
+    <li>社區營養推廣中心將於 <b>1 個月內</b> 完成異常個案追蹤，並回覆原轉介單位。</li></ul></div>
+</div></section>
+
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill gold">追蹤填報・重點提醒</span><span style="color:var(--grey);font-style:italic">社區營養推廣中心</span></div>
+  <h2>追蹤結果：有提供營養服務請填【J】</h2>
+  <p class="sub">資料區間 115年1–5月　｜　本題為複選，占比以有效個案 183 筆為分母，各項合計可超過 100%</p>
+  <div class="twocol">
+    <div class="card"><h3 style="font-size:1.05rem">115年1–5月 追蹤結果分布</h3>
+      <svg viewBox="0 0 620 360" style="width:100%;height:auto" font-family="inherit">
+        <!-- bars: label, value, pct -->
+        <g font-size="13" fill="#1B2B33">
+          <!-- I 73 39.9% -->
+          <text x="225" y="34" text-anchor="end">I 個案未採取行動</text>
+          <rect x="232" y="22" width="300" height="18" rx="3" fill="#028090"/>
+          <text x="540" y="36" font-size="12" fill="#1B2B33">73 (39.9%)</text>
+          <!-- A 69 37.7% -->
+          <text x="225" y="66" text-anchor="end">A 依衛教執行健康行為</text>
+          <rect x="232" y="54" width="283" height="18" rx="3" fill="#028090"/>
+          <text x="523" y="68" font-size="12" fill="#1B2B33">69 (37.7%)</text>
+          <!-- D 42 23.0% -->
+          <text x="225" y="98" text-anchor="end">D 至醫療院所進一步檢查</text>
+          <rect x="232" y="86" width="173" height="18" rx="3" fill="#00A896"/>
+          <text x="413" y="100" font-size="12" fill="#1B2B33">42 (23.0%)</text>
+          <!-- F 27 14.8% -->
+          <text x="225" y="130" text-anchor="end">F 配戴／調整輔具</text>
+          <rect x="232" y="118" width="111" height="18" rx="3" fill="#00A896"/>
+          <text x="351" y="132" font-size="12" fill="#1B2B33">27 (14.8%)</text>
+          <!-- H 14 7.7% -->
+          <text x="225" y="162" text-anchor="end">H 運用照管中心資源</text>
+          <rect x="232" y="150" width="58" height="18" rx="3" fill="#00A896"/>
+          <text x="298" y="164" font-size="12" fill="#1B2B33">14 (7.7%)</text>
+          <!-- J 10 5.5% highlighted -->
+          <text x="225" y="194" text-anchor="end" font-weight="800" fill="#E8552D">J 營養評估／諮詢與介入</text>
+          <rect x="232" y="180" width="42" height="20" rx="3" fill="#E8552D"/>
+          <text x="282" y="196" font-size="12" font-weight="800" fill="#E8552D">10 (5.5%)</text>
+          <!-- C 6 3.3% -->
+          <text x="225" y="226" text-anchor="end">C 使用線上資訊</text>
+          <rect x="232" y="214" width="25" height="18" rx="3" fill="#8FE3D6"/>
+          <text x="265" y="228" font-size="12" fill="#1B2B33">6 (3.3%)</text>
+          <!-- E 6 3.3% -->
+          <text x="225" y="258" text-anchor="end">E 至據點接受介入</text>
+          <rect x="232" y="246" width="25" height="18" rx="3" fill="#8FE3D6"/>
+          <text x="265" y="260" font-size="12" fill="#1B2B33">6 (3.3%)</text>
+          <!-- K 1 0.5% -->
+          <text x="225" y="290" text-anchor="end">K 轉介失智共照中心</text>
+          <rect x="232" y="278" width="6" height="18" rx="3" fill="#8FE3D6"/>
+          <text x="246" y="292" font-size="12" fill="#1B2B33">1 (0.5%)</text>
+        </g>
+      </svg></div>
+    <div class="card dark"><h3>填報重點</h3>
+      <ul><li class="strong">轉介個案至院內／配合營養師、社區營養推廣中心進行營養服務者，系統追蹤結果請填【J】。</li>
+      <li>避免因個案記憶或認知誤差導致 <b>低估成效</b>。</li>
+      <li>正確填【J】能 <b>具體呈現跨領域團隊</b> 的服務成效。</li></ul>
+      <div class="guidebox" style="margin-top:.9rem;background:#12455F"><div class="gh">💡 主持人補充</div><p>目前 J（營養介入）僅 5.5%，是最容易被漏填的一格 ── 把它填對，營養端的努力才看得見。</p></div></div>
+  </div>
+</div></section>
+
+<!-- ② 運動中心 / 銀髮健身俱樂部 -->
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill teal">資源單位分享 ②</span><span style="color:var(--grey);font-style:italic">行動・體能面向</span></div>
+  <h2>運動中心・銀髮健身俱樂部</h2>
+  <div class="ctxband"><span class="chip teal" style="width:42px;height:42px;font-size:1.2rem">🏃</span><p>今日代表：平鎮國民運動中心｜李方筑、八德銀髮健身俱樂部｜吳庭筠、和頌銀髮健身俱樂部｜李思賢、40+逆齡運動俱樂部｜劉芷瑄</p></div>
+  <div class="twocol">
+    <div class="card tealtop"><h3>在 ICOPE 裡的重要性</h3>
+      <ul><li>承接「行動」面向異常個案，提供肌力、平衡與有氧訓練。</li>
+      <li>以團體運動延緩衰弱、降低跌倒風險，是把篩檢結果轉成改變的關鍵一棒。</li>
+      <li>作為長者持續參與、回流追蹤的社區據點。</li></ul></div>
+    <div class="card seatop"><h3>轉介與合作方式</h3>
+      <ul><li class="strong">行動面向異常（如 5 次起立坐下偏慢）→ 轉介就近運動中心／俱樂部。</li>
+      <li>安排適合長者的體能課程，循序漸進建立運動習慣。</li>
+      <li>回報參與狀況，協助個案在後測時看見體能改善。</li></ul></div>
+  </div>
+  <p class="note">行動能力是長者自立生活的根本，運動介入能直接改善起立坐下、步態與肌少問題。</p>
+</div></section>
+
+<!-- ③ 社區關懷據點 -->
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill gold">資源單位分享 ③</span><span style="color:var(--grey);font-style:italic">社區介入・據點服務</span></div>
+  <h2>社區關懷據點</h2>
+  <div class="ctxband"><span class="chip gold" style="width:42px;height:42px;font-size:1.2rem">🏠</span><p>今日代表：中壢悅齡社區關懷據點｜劉耀鴻</p></div>
+  <div class="twocol">
+    <div class="card goldtop"><h3>在 ICOPE 裡的重要性</h3>
+      <ul><li>就近提供社會參與、共餐與健康促進活動。</li>
+      <li>第一線觀察長者生活狀況（少出門、體重下降、情緒低落），最早發現異常。</li>
+      <li>是長者最常出現的生活場域，最容易把人接住。</li></ul></div>
+    <div class="card seatop"><h3>轉介與合作方式</h3>
+      <ul><li class="strong">可作為篩檢場域，把 ICOPE 初篩帶進日常活動。</li>
+      <li>承接介入後的社區活動，讓長者有地方持續參與。</li>
+      <li>協助提醒個案回院後測，降低追蹤斷點。</li></ul></div>
+  </div>
+  <p class="note">許多衰退徵兆最早在據點被看見，也最容易在據點被接住。</p>
+</div></section>
+
+<!-- ④ 社區心理衛生中心 -->
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill" style="background:var(--navy)">資源單位分享 ④</span><span style="color:var(--grey);font-style:italic">憂鬱・情緒面向</span></div>
+  <h2>社區心理衛生中心</h2>
+  <div class="ctxband"><span class="chip navy" style="width:42px;height:42px;font-size:1.2rem">💙</span><p>今日代表：心理衛生中心 關懷員督導｜邱筠茹</p></div>
+  <div class="twocol">
+    <div class="card navytop"><h3>在 ICOPE 裡的重要性</h3>
+      <ul><li>承接「憂鬱／情緒」面向異常與待追蹤個案。</li>
+      <li>情緒低落常與認知、營養、社交退縮交互影響，需及早介入。</li>
+      <li>協助辨識需進一步轉介精神醫療的個案。</li></ul></div>
+    <div class="card seatop"><h3>轉介與合作方式</h3>
+      <ul><li class="strong">PHQ-2 等情緒指標異常或待追蹤 → 連結社區心衛資源。</li>
+      <li>提供情緒支持、心理衛生諮詢與資源連結。</li>
+      <li>必要時轉介精神醫療，並回報後續狀況。</li></ul></div>
+  </div>
+  <p class="note">及早介入情緒面向，能打斷退化的惡性循環，也提升其他介入的成效。</p>
+</div></section>
+
+<!-- ⑤ 長期照護 / 照管中心 -->
+<section class="slide bg-cream"><div class="inner">
+  <div class="dhead"><span class="pill teal">資源單位分享 ⑤</span><span style="color:var(--grey);font-style:italic">整合・照顧計畫</span></div>
+  <h2>長期照護・照管中心</h2>
+  <div class="ctxband"><span class="chip teal" style="width:42px;height:42px;font-size:1.2rem">🤝</span><p>今日代表：長期照護科 照專督導｜莊愷玟、邱郁婷</p></div>
+  <div class="twocol">
+    <div class="card tealtop"><h3>在 ICOPE 裡的重要性</h3>
+      <ul><li>對多重異常、需長期照顧的個案進行照管評估。</li>
+      <li>把零散的轉介整合成一份照顧計畫，避免漏接與重複。</li>
+      <li>擔任跨資源整合與照顧計畫的統整窗口。</li></ul></div>
+    <div class="card seatop"><h3>轉介與合作方式</h3>
+      <ul><li class="strong">多重異常或失能風險個案 → 轉介照管中心進行需求評估。</li>
+      <li>銜接長照 2.0 服務（居家、社區、輔具租用等）。</li>
+      <li>作為多重異常個案的「主責窗口」，統整各面向介入。</li></ul></div>
+  </div>
+  <p class="note">當長者同時出現多面向衰退，照管中心讓所有資源接成同一份照顧計畫。</p>
+</div></section>
+
+<section class="slide bg-cream"><div class="inner">
+  <div class="badge-row"><div class="tbadge gold">105–<br>120</div><div><h2 style="margin:0">總結與數位賦能：相關資源</h2><p class="sub" style="margin:0">把今天的共識，交到每個人手上的三項工具 ── 掃 QR 或直接點擊連結</p></div></div>
+  <div class="cards g3">
+    <div class="rescard" style="border-top:6px solid var(--teal)"><img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACxUlEQVR4nO2cQY7bMAxFHysDs7SBHKBHUW7QIxW9mX2UOUAAeTmAg9+FpNgp2gkGzXgsgFwISfwWH2DIkJQUEx+x6duHcHDeeec/lZ+t2HnuyG/Ps5mduRoA9Xm3jx7nn8h3QFgAMPo3g17AHBaYT4L5tBBHgPm0gx7nP4MvwTl3EF/NKJ5+s0LlcN5Pj/OfwvcS0xDKAkHQL1+nx/kn81cjqjp0Gq7GNHylHuf/l+8AKE3SfJJNw6WDHoAgy6/yb/Ieepx/Lo+U6suYgv66FAvSeDT9zj8wbW2hOnS7bMz92x4/d9gZMBsA+iXHdFm0wDRA6Y4PqN/596xErRY09hIx3T0dCSpPPT+3yc8dGucXWRlYBWnspexabkOsn2knPc4/kS/xS18itOTnHLDb6svjt0keKZWALQWzqn+l1edeXzXKd3kMGV8NTd/XWVWtn2PtjizPqY+m3/kHVuKS0uuWqO3XRZJqJ+zx2xq/7YXGfoEoiVjzcWZiun0Pjqbf+QeW3Vh+eotDSy3F7bNetaY+mn7nH1hJvrVgrvsLtebi1v/K83ODfJ1P1vitXS/UrcGgkrjdvw3ytf/lLlNTu6I8zooJPD83ydcJRr9sls2e0s3TPt9okq9RuzZJqv7Nkbzxufu3SX4206+hTpgne5Gd88PbOJpQPzugfuffs7XNXafOsPZHiTKJ9vzcIl9zcd5kUB1ipbCdb4DXV43yd+c30nY7adMf6eZz9297/Hp/gSAze5HGuS5KYGeufv65TZ5NLo75/BXcbQKHW2B7fm6VL/cXgNrrQj36fDWzISjfbjiofuf/Zd0f7zUNCYsJEROC/tJpOu+mx/nn8nf+nU8ipmunabh0mn5cupUwCDvocf65/N39hX7B4hhkMZGXfH8QrqZ99Dj/XP7+/sK63bCeyVo574/a402PmY35/zM47/yB+N/4/FhhGNGUeQAAAABJRU5ErkJggg==" alt="共識網頁 QR">
+      <h3>ICOPE 桃園共識網頁</h3><p>六面向資源窗口、對接流程與服務資訊</p>
+      <a class="link" href="https://mattsue1003.github.io/taoyuanicope/" target="_blank">mattsue1003.github.io/taoyuanicope/</a></div>
+    <div class="rescard" style="border-top:6px solid var(--navy)"><div class="qr" style="width:150px;height:150px;margin:.3rem auto .8rem;border:2px dashed var(--navy);display:flex;align-items:center;justify-content:center;border-radius:8px;color:var(--grey);font-weight:800;text-align:center;font-size:.85rem;line-height:1.4">電子書 QR<br>（現場掃描<br>或點下方連結）</div>
+      <h3>桃園 ICOPE 電子書</h3><p>整合版手冊，標準化轉介與作業說明</p>
+      <a class="link" href="https://mattsue1003.github.io/Taoyuanicopebook/#integrated" target="_blank">mattsue1003.github.io/Taoyuanicopebook</a></div>
+    <div class="rescard" style="border-top:6px solid var(--line)"><div class="qr" style="width:150px;height:150px;margin:.3rem auto .8rem;border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;border-radius:8px;color:var(--grey);font-weight:800;text-align:center;font-size:.85rem;line-height:1.4">LINE 社群 QR<br>（現場掃描<br>或點下方連結）</div>
+      <h3>跨單位專業交流 LINE 社群</h3><p>「桃園ICOPE跨單位專業交流群」即時提問</p>
+      <a class="link" href="https://reurl.cc/zQ9mAe" target="_blank">reurl.cc/zQ9mAe（點此加入）</a></div>
+  </div>
+  <p class="note">會後請務必加入 LINE 社群並收藏網頁與電子書，讓今天的共識在第一線持續運作。</p>
+</div></section>
+
+<section class="slide bg-navy"><div class="inner">
+  <div class="kicker sea">THANK YOU</div>
+  <h2 style="font-size:clamp(2rem,4.5vw,3.2rem)">一起把斷點接起來，<br>把後測補回來。</h2>
+  <p class="sub" style="font-size:1.1rem;margin-top:1rem">請於會後加入「桃園ICOPE跨單位專業交流群」，並查閱共識網頁與電子書。<br>本場 YouTube 直播全程錄影，精華片段將隨成果報告提交。</p>
+  <div style="margin-top:1.6rem;display:flex;align-items:center;gap:1.2rem;background:rgba(255,255,255,.08);border:1px solid var(--gold);border-radius:14px;padding:1.1rem 1.3rem;max-width:600px">
+    <img src="data:image/png;base64,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" alt="線上簽退暨回饋單 QR" style="width:130px;height:130px;border-radius:8px;background:#fff;padding:6px;flex:none">
+    <div>
+      <div class="kicker" style="color:var(--gold);margin-bottom:.3rem">離會前最後一步</div>
+      <p style="color:#fff;font-weight:800;font-size:1.2rem;margin-bottom:.3rem">線上簽退暨回饋單</p>
+      <p style="color:var(--mint);font-size:.92rem;margin-bottom:.5rem">請掃描 QR 或點擊連結，完成簽退並填寫回饋（約 3 分鐘）</p>
+      <a href="https://forms.gle/BZvHkHuFjdn4Y64SA" target="_blank" style="display:inline-block;background:var(--gold);color:#1B2B33;font-weight:800;font-size:.88rem;padding:.45rem .9rem;border-radius:8px;text-decoration:none;word-break:break-all">forms.gle/BZvHkHuFjdn4Y64SA</a>
+    </div>
+  </div>
+  <p class="foot">主持人：鍾孟修 職能治療師　｜　主辦：桃園市政府衛生局　協辦：社團法人台灣生活復能健康促進協會</p>
+</div></section>
+</div>
+<button id="modetoggle">切換：翻頁／捲動</button>
+<div id="hud">
+  <button id="prev" aria-label="上一頁">&#8249;</button>
+  <span id="counter">1 / 1</span>
+  <button id="next" aria-label="下一頁">&#8250;</button>
+</div>
+<script>
+const deck=document.getElementById('deck');
+const slides=[...deck.querySelectorAll('.slide')];
+const counter=document.getElementById('counter');
+const progress=document.getElementById('progress');
+let idx=0;
+function clamp(n){return Math.max(0,Math.min(slides.length-1,n))}
+function go(n){idx=clamp(n);slides[idx].scrollIntoView({behavior:'smooth'});update()}
+function update(){
+  counter.textContent=(idx+1)+' / '+slides.length;
+  progress.style.width=((idx)/(slides.length-1)*100)+'%';
+}
+document.getElementById('next').onclick=()=>go(idx+1);
+document.getElementById('prev').onclick=()=>go(idx-1);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(idx+1)}
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(idx-1)}
+  if(e.key==='Home'){go(0)} if(e.key==='End'){go(slides.length-1)}
+});
+const io=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){idx=slides.indexOf(en.target);update()}})
+},{threshold:.5});
+slides.forEach(s=>io.observe(s));
+const mt=document.getElementById('modetoggle');
+mt.onclick=()=>{
+  deck.classList.toggle('paged');deck.classList.toggle('scroll');
+  mt.textContent = deck.classList.contains('paged')?'切換：翻頁／捲動':'目前：捲動模式';
+};
+deck.addEventListener('click',e=>{
+  if(!deck.classList.contains('paged'))return;
+  if(e.target.closest('a,button,iframe,.slido'))return;
+  const x=e.clientX,w=window.innerWidth;
+  if(x>w*0.82)go(idx+1); else if(x<w*0.18)go(idx-1);
+});
+update();
+</script>
+</body>
+</html>
